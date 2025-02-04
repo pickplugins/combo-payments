@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -22,17 +22,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased flex min-w-screen min-h-screen`}>
-				<aside className="flex flex-col gap-4 min-w-[200px] bg-gray-200 text-gray-800 p-4">  
-					{["products", "orders", "subscriptions", "licenses"].map(
-						(item, index) => {
-							return (
-								<Link key={index} href={`/${item}`} className="hover:bg-gray-300 cursor-pointer px-4 py-2 bg-gray-400">
-									{item}
-								</Link>
-							);
-						}
-					)}
-				</aside>
+					<Sidebar />
 				<main>{children}</main>
 			</body>
 		</html>
